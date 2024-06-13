@@ -52,12 +52,13 @@ public class MainView extends VerticalLayout {
         grid.addColumn(Ship::getConsumables).setHeader("Consumables");
         grid.addColumn(Ship::getHyperdrive_rating).setHeader("Hyperdrive rating");
         grid.addColumn(Ship::getStarship_class).setHeader("Starship class");
-        grid.addColumn(Ship::getPilots).setHeader("Pilots");
-        grid.addColumn(Ship::getFilms).setHeader("Films");
+        grid.addColumn(Ship::getPilotsView).setHeader("Pilots");
+        grid.addColumn(Ship::getFilmsView).setHeader("Films");
         grid.addColumn(new NativeButtonRenderer<>("Generar", clickedItem -> {
                     //service.senPDFRequest(clickedItem.getName());
                 })
         ).setHeader("Generar PDF");
+
         List<Ship> ship = service.getShipsList();
         grid.setItems(ship);
         grid.setWidth("100%");

@@ -96,12 +96,28 @@ public class Ship {
         return pilots;
     }
 
+    public String getPilotsView() {
+        String pilotsView = "";
+        for (String pilot : pilots) {
+            pilotsView += pilot + ", ";
+        }
+        return pilotsView;
+    }
+
     public void setPilots(String[] pilots) {
         this.pilots = pilots;
     }
 
     public String[] getFilms() {
         return films;
+    }
+
+    public String getFilmsView() {
+        String filmsView = "";
+        for (String film : films) {
+            filmsView += film + ", ";
+        }
+        return filmsView;
     }
 
     public void setFilms(String[] films) {
