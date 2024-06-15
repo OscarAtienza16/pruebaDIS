@@ -11,8 +11,8 @@ public class API {
     private static final String urlShipsList = "http://localhost:8888/ships";
 
 
-    // Mostrar todos los usuarios de back
-    public String getShipsList() throws URISyntaxException, IOException, InterruptedException {
+    // Mostrar todos los ships de back
+    public String getShips() throws URISyntaxException, IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder() // Builder de la request
                 .uri(new URI(urlShipsList))
                 .GET()
