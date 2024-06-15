@@ -10,7 +10,6 @@ import java.net.http.HttpResponse;
 public class API {
     private static final String urlShipsList = "http://localhost:8888/ships";
 
-
     // Mostrar todos los ships de back
     public String getShips() throws URISyntaxException, IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder() // Builder de la request
