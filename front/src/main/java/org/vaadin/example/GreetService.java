@@ -20,4 +20,11 @@ public class GreetService implements Serializable {
         return new Gson().fromJson(resultsAPI, listType); // Transformamos el objeto JSON a un arraylist Java
     }
 
+    public void sendPDFShip(String name) throws URISyntaxException, IOException, InterruptedException {
+        // Llamamos a la función para enviar el nombre y obtener la respuesta
+        API api = new API();
+        String response = api.sendPDF(name);
+
+        System.out.println("Respuesta del servidor: " + response);
+    }
 }

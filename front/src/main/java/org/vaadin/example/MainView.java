@@ -55,7 +55,15 @@ public class MainView extends VerticalLayout {
         grid.addColumn(Ship::getPilotsView).setHeader("Pilots");
         grid.addColumn(Ship::getFilmsView).setHeader("Films");
         grid.addColumn(new NativeButtonRenderer<>("Generar", clickedItem -> {
-                    //service.senPDFRequest(clickedItem.getName());
+                    try {
+                        service.sendPDFShip(clickedItem.getName());
+                    } catch (URISyntaxException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                 })
         ).setHeader("Generar PDF");
 

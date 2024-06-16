@@ -21,4 +21,17 @@ public class ShipController {
         ArrayList<Ship> shipsList = reader.getShipsList("./back/src/main/resources/data.json");
         return shipsList;
     }
+
+    // POST al JSON
+    @PostMapping(path = "/ships",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> create(@RequestBody String shipName){
+        ShipHandling handling = new ShipHandling();
+        Ship ship = handling.getShipInfo(shipName);
+        handling.writeLogJSON(shipName);
+        PDFManager manager = new PDFManager();
+        manager.createPDF(ship);
+        return ResponseEntity.ok("Creado");
+    }
 }
